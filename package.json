@@ -12,9 +12,11 @@
   "author": "Jules",
   "license": "Apache-2.0",
   "dependencies": {
+    "chromadb": "^3.0.14",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "express": "^4.19.2",
+    "openai": "^5.12.2",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0",
     "winston": "^3.13.0"

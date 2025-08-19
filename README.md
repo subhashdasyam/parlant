@@ -61,42 +61,54 @@ await agent.create_guideline(
 
 </div>
 
+First, clone the repository and install the dependencies:
 ```bash
-pip install parlant
+git clone https://github.com/emcie-co/parlant.git
+cd parlant
+npm install
 ```
 
-```python
-import parlant.sdk as p
-
-@p.tool
-async def get_weather(context: p.ToolContext, city: str) -> p.ToolResult:
-    # Your weather API logic here
-    return p.ToolResult(f"Sunny, 72°F in {city}")
-
-async def main():
-    async with p.Server() as server:
-        agent = await server.create_agent(
-            name="WeatherBot",
-            description="Helpful weather assistant"
-        )
-
-        # Define behavior with natural language
-        await agent.create_guideline(
-            condition="User asks about weather",
-            action="Get current weather and provide a friendly response with suggestions",
-            tools=[get_weather]
-        )
-
-        # 🎉 Test playground ready at http://localhost:8800
-        # Integrate the official React widget into your app,
-        # or follow the tutorial to build your own frontend!
-
-if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+Then, start the server:
+```bash
+npm start
 ```
 
-**That's it!** Your agent is running with guaranteed rule-following behavior.
+Now you can interact with the API. For example, you can create a new agent using `curl`:
+
+```bash
+curl -X POST http://localhost:8080/agents \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "MyNewAgent",
+  "description": "This is a test agent"
+}'
+```
+
+Or by using a TypeScript script:
+
+```typescript
+import fetch from 'node-fetch';
+
+async function createAgent() {
+  const response = await fetch('http://localhost:8080/agents', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: 'MyNewAgent',
+      description: 'This is a test agent',
+    }),
+  });
+
+  const agent = await response.json();
+  console.log('Created agent:', agent);
+}
+
+createAgent();
+```
+
+**That's it!** You have a running Parlant server written in TypeScript.
 
 ## 🎬 See It In Action
 
