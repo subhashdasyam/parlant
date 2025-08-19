@@ -1,0 +1,33 @@
+{
+  "name": "parlant-ts",
+  "version": "1.0.0",
+  "description": "TypeScript conversion of the Parlant server",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js",
+    "test": "jest"
+  },
+  "author": "Jules",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "express": "^4.19.2",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^18.19.39",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

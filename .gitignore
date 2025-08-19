@@ -22,3 +22,7 @@ scripts/fern/openapi
 fern.generate.log
 schematic_generation_test_cache.json
 test_timing.csv
+
+# TypeScript project
+node_modules
+dist
